@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html style="overflow-x: hidden">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dashboard</title>
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'jasny/css/jasny-bootstrap.css')}}">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+</head>
+<body style="background-size: 100%; margin-bottom: 70px;">
+<div class="border-row" style="width:100%; margin-bottom: 15px;"> </div>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		{% for message in messages %}
+		<div class="row">
+			<div class="col-md-12">
+			  <div class="alert alert-warning alert-dismissible" role="alert">
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				  {{ message }}
+			  </div>
+			</div>
+		</div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript" src = "{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+
+
+<script type="text/javascript" src = "{{url_for('static', filename = 'jasny/jasny-bootstrap.min.js')}}"></script>
+
+
+
+
+	<div class="container">
+		<div class="row">
+
+
+			<div class="col-md-4">
+				<img src="{{url_for('static', filename = 'images/IIEST_Shibpur Logo.jpg')}}">
+			</div>
+
+
+			<div class="col-md-8 pull-right">
+				<span class="dropdown pull-right">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{url_for('static', filename = 'images/loggedinas.jpeg')}}" class="img-responsive" style="height: 50px; margin-top: 10px"> <span class="caret"></span></a>
+			          {% if session.logged_in %}
+			          <ul class="dropdown-menu">
+			            <li>
+			            	{%if username == session['username'] %}
+			            	<a href="{{url_for('editstudentprofile', username = username)}}">Edit Profile</a></li>
+			            	{%endif%}
+			            <li><a href="{{url_for('logout')}}">Logout</a></li>
+			            
+			          </ul>
+			          {%endif%}
+				</span>
+
+
+				<span class="pull-right " style="padding-right: 22px">
+					{%if username != session['username']%}
+					<a href="{{(url_for('dashboardfaculty', username = session['username']))}}"><h3 >DASHBOARD</h3></a>
+					{%else%}
+					<a href="{{(url_for('main'))}}"><h2 >HOME</h2></a>
+					{%endif%}
+				</span>
+
+
+				<span class="pull-right " style="padding-right: 22px; margin-top: 12px">
+					<form class="navbar-form navbar-left" role="search">
+				        <div class="form-group">
+				          <input type="text" class="form-control" placeholder="Search">
+				        </div>
+				        <button type="submit" class="btn btn-default">Submit</button>
+				     </form>
+
+
+				</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<hr>
+
+			</div>
+
+		</div>
+
+
+		<div class="row">
+
+			<div class="col-md-6 text-left">
+
+				<h2>{{fname}} &nbsp;{{lname}}</h2>
+				<p>Semester: {{sem}}</p>
+				<p>Department: {{department}}</p>
+				<p>Registration: {{username}} </p>
+				<p>IIEST Shibpur</p>
+
+			</div>
+
+
+			<div class="col-md-6">
+				<div class="col-md-6 pull-right ">
+
+					<img src="{{photo}}" class="img-responsive pull-right"  >
+					
+					
+				</div>
+			</div>
+
+		</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<hr>
+
+			</div>
+
+		</div>
+		<div class="container">
+			<div class = "row">
+				{% if session.logged_in  and username == session['username']%}
+				<div class="col-md-6 text-center">
+					<h3 >About Yourself </h3>
+					<p>Student of Department of Computer Science</p>
+
+					
+				</div>
+				
+				<div class="col-md-6  text-center">
+					<h3 >News and Announcements</h3>
+					<p>Test on 27 August 2016</p>
+
+				</div>
+				{%else%}
+
+				<h3 >About Yourself </h3>
+				<br>
+
+					<p>Student of Department of {{department}}</p>
+					
+			</div>
+			{%endif%}
+		</div>
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</body>
+
+<div class="container-fluid " style="text-align:center">
+    <div class="navbar navbar-fixed-bottom" style="text-align:center;">
+      <ul >
+        <a  href="/mission"><button type="button" class = "btn btn-primary" ><span class="glyphicon glyphicon-eye-open"></span>   Mission&nbsp;&nbsp;&nbsp;</button></a>
+        <a  href="/about"><button type="button" class = "btn btn-primary" ><span class="glyphicon glyphicon-thumbs-up"></span>   About&nbsp;&nbsp;&nbsp;</button></a>
+        <a  href="/contact"><button type="button" class = "btn btn-primary" ><span class="glyphicon glyphicon-earphone"></span>   Contact&nbsp;&nbsp;&nbsp;</button></a>
+        
+      </ul>
+      
+    </div>
+
+  </div>
+
+</html>
