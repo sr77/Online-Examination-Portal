@@ -1,0 +1,22 @@
+
+.mycontainer  {
+    width: 90%;
+    height: 1000px;
+    z-index: -1;
+    opacity: 1;
+
+    background-image: url(../images/laptop-wall.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.myimage {
+  background: transparent url("../images/laptop-wall.jpg") no-repeat top center fixed;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+  margin-top: 0px;
+}
