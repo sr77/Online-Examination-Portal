@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dashboard</title>
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'jasny/css/jasny-bootstrap.css')}}">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+</head>
+<body style="background-size: 100%">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript" src = "{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+
+
+<script type="text/javascript" src = "{{url_for('static', filename = 'jasny/jasny-bootstrap.min.js')}}"></script>
+
+
+
+
+	<div class="container">
+		<div class="row">
+
+
+			<div class="col-md-4">
+				<img src="{{url_for('static', filename = 'images/IIEST_Shibpur Logo.jpg')}}">
+			</div>
+
+
+			<div class="col-md-8 pull-right">
+				<span class="dropdown pull-right">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{url_for('static', filename = 'images/loggedinas.jpeg')}}" class="img-responsive" style="height: 50px; margin-top: 5px"> <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="/edit.html">Edit Profile</a></li>
+			            <li><a href="{{url_for('logout')}}">Logout</a></li>
+			            
+			          </ul>
+				</span>
+
+
+				<span class="pull-right " style="padding-right: 22px">
+					<a href="{{(url_for('main'))}}"><h2 >HOME</h2></a>
+				</span>
+
+
+				<span class="pull-right " style="padding-right: 22px; margin-top: 12px">
+					<form class="navbar-form navbar-left" role="search">
+				        <div class="form-group">
+				          <input type="text" class="form-control" placeholder="Search">
+				        </div>
+				        <button type="submit" class="btn btn-default">Submit</button>
+				     </form>
+
+
+				</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<hr>
+
+			</div>
+
+		</div>
+
+		<a role="presentation" class="active" data-toggle="modal" data-target="#exampleModal" href="#"><img src="{{url_for('static', filename = 'images/default.png')}}" class="img-responsive pull-right"  ></a>
+					
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+
+									<h4 class="modal-title" id="exampleModalLabel">Change your profile picture</h4>
+								</div>
+
+
+								<div class="modal-body">
+									<div class="container">
+
+										<div class="fileinput fileinput-new" data-provides="fileinput">
+										  <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+										    <img data-src="holder.js/100%x100%" alt="...">
+										  </div>
+										  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+										  <div>
+										    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+										    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+										  </div>
+										</div>
+
+
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+	</div>
+</body>
+
+</html>
