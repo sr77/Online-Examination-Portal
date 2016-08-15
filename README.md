@@ -12,3 +12,7 @@
 <br>
 <h5>Students Page</h5>
 <img src="Screenshots2.png">
+<br>
+<br>
+<h5>Faculty Page</h5>
+<img src="Screenshots3.png">
