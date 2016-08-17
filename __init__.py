@@ -405,6 +405,16 @@ def editstudentprofile(username):
     else:
         return "Go edit your own"
 
+
+@app.route('/edit/<username>/', methods=['GET', 'POST'])
+@login_required
+@login_required_faculty
+def edit(username):
+    if username == session['username']:
+        return render_template('editstudentprofile.html', username = username)
+    else:
+        return "Go edit your own"
+
 @app.route('/edit/<username>/', methods=['GET', 'POST'])
 @login_required
 def editstudentsProfile(username):
